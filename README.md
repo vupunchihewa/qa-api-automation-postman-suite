@@ -39,6 +39,10 @@ This project demonstrates API testing and automation using Postman for a user ma
 * Postman
 * ReqRes API
 
+## 📸 Collection Runner Result
+
+![Runner](runner.png)
+
 ## 👤 Author
 
 Vishwani Punchihewa
