@@ -39,6 +39,12 @@ This project demonstrates API testing and automation using Postman for a user ma
 * Postman
 * ReqRes API
 
+## 📁 Project Structure
+
+- collection/ → Postman collection file  
+- environment/ → Environment variables  
+- screenshots/ → Test execution images  
+
 ## 📸 Screenshots
 
 ### 🔹 Collection Runner Result
