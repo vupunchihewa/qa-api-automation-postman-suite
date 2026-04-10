@@ -39,9 +39,27 @@ This project demonstrates API testing and automation using Postman for a user ma
 * Postman
 * ReqRes API
 
-## 📸 Collection Runner Result
+## 📸 Screenshots
 
-![Runner](runner.png)
+### 🔹 Collection Runner Result
+
+![Runner](screenshots/runner.png)
+
+### 🔹 GET Users Response
+
+![GET Users](screenshots/getusers.png)
+
+### 🔹 POST Create User
+
+![Create User](screenshots/createuser.png)
+
+### 🔹 PUT Update User
+
+![Update User](screenshots/updateuser.png)
+
+### 🔹 DELETE User
+
+![Delete User](screenshots/deleteuser.png)
 
 ## 👤 Author
 
