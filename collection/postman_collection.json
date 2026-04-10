@@ -1,1 +1,264 @@
-
+{
+  "info": {
+    "_postman_id": "d60981a5-588c-41ae-9764-d9a5145fc744",
+    "name": "User API Automation Suite",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "41556080"
+  },
+  "item": [
+    {
+      "name": "Get Users",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Users list is not empty\", function () {\r",
+              "    let jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData.data.length).to.be.above(0);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{x-api-key}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/users?page=2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "2"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create User",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"User created successfully\", function () {\r",
+              "    pm.response.to.have.status(201);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Response has name\", function () {\r",
+              "    let res = pm.response.json();\r",
+              "    pm.expect(res.name).to.eql(\"Vish\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{x-api-key}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Vish\",\r\n  \"job\": \"QA Engineer\",\r\n  \"id\": \"...\",\r\n  \"createdAt\": \"...\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"User updated successfully\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Updated name correct\", function () {\r",
+              "    let data = pm.response.json();\r",
+              "    pm.expect(data.name).to.eql(\"Vish Updated\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{x-api-key}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Vish Updated\",\r\n  \"job\": \"Senior QA\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"User deleted successfully\", function () {\r",
+              "    pm.response.to.have.status(204);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "x-api-key",
+            "value": "{{x-api-key}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/users/2",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "users",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "x-api-key",
+      "value": ""
+    }
+  ]
+}
